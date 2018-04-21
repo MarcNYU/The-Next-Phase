@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 1ac07acfc077d476ca160076723b36ca
+timeCreated: 1523795100
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: bicept
+    100004: forearm
+    100006: hand
+    100008: index0
+    100010: index1
+    100012: initialShadingGroup_transform1
+    100014: middle0
+    100016: middle1
+    100018: pinky0
+    100020: pinky1
+    100022: shoulder
+    100024: //RootNode
+    100026: thumb0
+    100028: thumb1
+    100030: elbow
+    100032: initialShadingGroup_transform1_001
+    100034: initialShadingGroup_transform1_002
+    100036: initialShadingGroup_transform1_003
+    100038: initialShadingGroup_transform1_004
+    100040: initialShadingGroup_transform1_005
+    100042: initialShadingGroup_transform1_006
+    100044: initialShadingGroup_transform1_007
+    100046: initialShadingGroup_transform1_008
+    100048: initialShadingGroup_transform1_009
+    100050: initialShadingGroup_transform1_010
+    100052: initialShadingGroup_transform1_011
+    100054: initialShadingGroup_transform1_012
+    100056: initialShadingGroup_transform1_013
+    100058: initialShadingGroup_transform1_014
+    100060: initialShadingGroup_transform1_015
+    100062: initialShadingGroup_transform1_016
+    100064: initialShadingGroup_transform1_017
+    100066: initialShadingGroup_transform1_018
+    100068: initialShadingGroup_transform1_019
+    100070: lowerarm
+    100072: upperarm
+    100074: Armature_001
+    100076: Armature_002
+    100078: initialShadingGroup_transform1_020
+    100080: upperarm_003
+    100082: wrist
+    400000: Armature
+    400002: bicept
+    400004: forearm
+    400006: hand
+    400008: index0
+    400010: index1
+    400012: initialShadingGroup_transform1
+    400014: middle0
+    400016: middle1
+    400018: pinky0
+    400020: pinky1
+    400022: shoulder
+    400024: //RootNode
+    400026: thumb0
+    400028: thumb1
+    400030: elbow
+    400032: initialShadingGroup_transform1_001
+    400034: initialShadingGroup_transform1_002
+    400036: initialShadingGroup_transform1_003
+    400038: initialShadingGroup_transform1_004
+    400040: initialShadingGroup_transform1_005
+    400042: initialShadingGroup_transform1_006
+    400044: initialShadingGroup_transform1_007
+    400046: initialShadingGroup_transform1_008
+    400048: initialShadingGroup_transform1_009
+    400050: initialShadingGroup_transform1_010
+    400052: initialShadingGroup_transform1_011
+    400054: initialShadingGroup_transform1_012
+    400056: initialShadingGroup_transform1_013
+    400058: initialShadingGroup_transform1_014
+    400060: initialShadingGroup_transform1_015
+    400062: initialShadingGroup_transform1_016
+    400064: initialShadingGroup_transform1_017
+    400066: initialShadingGroup_transform1_018
+    400068: initialShadingGroup_transform1_019
+    400070: lowerarm
+    400072: upperarm
+    400074: Armature_001
+    400076: Armature_002
+    400078: initialShadingGroup_transform1_020
+    400080: upperarm_003
+    400082: wrist
+    2100000: unnamed
+    2300000: initialShadingGroup_transform1
+    2300002: initialShadingGroup_transform1_001
+    2300004: initialShadingGroup_transform1_002
+    2300006: initialShadingGroup_transform1_003
+    2300008: initialShadingGroup_transform1_004
+    2300010: initialShadingGroup_transform1_005
+    2300012: initialShadingGroup_transform1_006
+    2300014: initialShadingGroup_transform1_007
+    2300016: initialShadingGroup_transform1_008
+    2300018: initialShadingGroup_transform1_009
+    2300020: initialShadingGroup_transform1_010
+    2300022: initialShadingGroup_transform1_011
+    2300024: initialShadingGroup_transform1_012
+    2300026: initialShadingGroup_transform1_013
+    2300028: initialShadingGroup_transform1_014
+    2300030: initialShadingGroup_transform1_015
+    2300032: initialShadingGroup_transform1_016
+    2300034: initialShadingGroup_transform1_017
+    2300036: initialShadingGroup_transform1_018
+    2300038: initialShadingGroup_transform1_019
+    2300040: initialShadingGroup_transform1_020
+    3300000: initialShadingGroup_transform1
+    3300002: initialShadingGroup_transform1_001
+    3300004: initialShadingGroup_transform1_002
+    3300006: initialShadingGroup_transform1_003
+    3300008: initialShadingGroup_transform1_004
+    3300010: initialShadingGroup_transform1_005
+    3300012: initialShadingGroup_transform1_006
+    3300014: initialShadingGroup_transform1_007
+    3300016: initialShadingGroup_transform1_008
+    3300018: initialShadingGroup_transform1_009
+    3300020: initialShadingGroup_transform1_010
+    3300022: initialShadingGroup_transform1_011
+    3300024: initialShadingGroup_transform1_012
+    3300026: initialShadingGroup_transform1_013
+    3300028: initialShadingGroup_transform1_014
+    3300030: initialShadingGroup_transform1_015
+    3300032: initialShadingGroup_transform1_016
+    3300034: initialShadingGroup_transform1_017
+    3300036: initialShadingGroup_transform1_018
+    3300038: initialShadingGroup_transform1_019
+    3300040: initialShadingGroup_transform1_020
+    4300000: initialShadingGroup_transform1
+    4300002: initialShadingGroup_transform1_019
+    4300004: initialShadingGroup_transform1_018
+    4300006: initialShadingGroup_transform1_017
+    4300008: initialShadingGroup_transform1_016
+    4300010: initialShadingGroup_transform1_015
+    4300012: initialShadingGroup_transform1_014
+    4300014: initialShadingGroup_transform1_013
+    4300016: initialShadingGroup_transform1_012
+    4300018: initialShadingGroup_transform1_011
+    4300020: initialShadingGroup_transform1_010
+    4300022: initialShadingGroup_transform1_009
+    4300024: initialShadingGroup_transform1_008
+    4300026: initialShadingGroup_transform1_007
+    4300028: initialShadingGroup_transform1_006
+    4300030: initialShadingGroup_transform1_005
+    4300032: initialShadingGroup_transform1_004
+    4300034: initialShadingGroup_transform1_003
+    4300036: initialShadingGroup_transform1_002
+    4300038: initialShadingGroup_transform1_001
+    4300040: initialShadingGroup_transform1_020
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
