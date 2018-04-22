@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{8D9BACD9-BFDD-5495-5948-87023F3689EF}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Phase/Scripts/Utillity Scripts/TimeBody.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Phase/Scripts/Player Scripts/PlayerLookAt.cs">
     <Files>
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerHealth.cs" Line="99" Column="2" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerHealth.cs" Line="30" Column="55" />
       <File FileName="Assets/Phase/Scripts/Enemy Scripts/Enemy.cs" Line="1" Column="1" />
       <File FileName="Assets/Phase/Scripts/Enemy Scripts/BossEnemy.cs" Line="5" Column="24" />
       <File FileName="Assets/Phase/Scripts/Enemy Scripts/LesserEnemy.cs" Line="5" Column="26" />
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerMovement.cs" Line="1" Column="1" />
       <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyMovement.cs" Line="1" Column="1" />
       <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets/Phase/Scripts/Camera Scripts/CameraController.cs" Line="12" Column="29" />
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerLookAt.cs" Line="6" Column="5" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Camera Scripts/CameraController.cs" Line="27" Column="31" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerLookAt.cs" Line="32" Column="9" NotebookId="1" />
       <File FileName="Assets/Phase/Scripts/Utillity Scripts/FieldOfView.cs" Line="21" Column="36" NotebookId="1" />
       <File FileName="Assets/Phase/Scripts/Utillity Scripts/TimeBody.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerMovementCC.cs" Line="51" Column="23" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerMovementRB.cs" Line="56" Column="41" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

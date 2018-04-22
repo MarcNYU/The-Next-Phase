@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Phase/Scenes/Main/Arena1.unity
+- path: Assets/Phase/Scenes/Test/PlayerTestEnvironment.unity
   isLoaded: 1
   isActive: 1

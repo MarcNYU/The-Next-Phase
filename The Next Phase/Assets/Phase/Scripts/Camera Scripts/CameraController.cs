@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
+    
     public static CameraController Instance;
     public Transform TargetLoookAt;
 
