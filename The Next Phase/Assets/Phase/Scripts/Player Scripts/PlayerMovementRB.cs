@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementRB : MonoBehaviour {
 
-    public int playerNumber;          // Used to identify which tank belongs to which player.  This is set by this player's manager.
+    public int playerNumber;            // Used to identify which character belongs to which player.  This is set by this player's manager.
     public float speed = 6f;            // The speed that the player will move at.
 
     Animator anim;                      // Reference to the animator component.
@@ -12,7 +12,7 @@ public class PlayerMovementRB : MonoBehaviour {
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
 
     public float GroundDistance = 0.2f;
-    public float DashDistance = 5f;
+    public float DashDistance = 20f;
     public LayerMask Ground;
 
     private Vector3 inputVector = Vector3.zero;
@@ -25,6 +25,7 @@ public class PlayerMovementRB : MonoBehaviour {
     public float pitchRange = 0.2f;           // The amount by which the pitch of the engine noises can vary.
     private float originalPitch;              // The pitch of the audio source at the start of the scene.
 
+    public float JumpHeight = 8f;
 
 	private void Awake()
 	{
@@ -53,21 +54,39 @@ public class PlayerMovementRB : MonoBehaviour {
         inputVector = Vector3.zero;
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.z = Input.GetAxis("Vertical");
-        if (inputVector != Vector3.zero)
-            transform.forward = inputVector;
 
+        //if (inputVector != Vector3.zero)
+            //transform.forward = inputVector;
+        
         if (Input.GetButtonDown("Dash"))
         {
-            Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * rb.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * rb.drag + 1)) / -Time.deltaTime)));
-            rb.AddForce(dashVelocity, ForceMode.VelocityChange);
+            //METHOD 1 Broken
+            //Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * rb.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * rb.drag + 1)) / -Time.deltaTime)));
+            //rb.AddForce(transform.right * speed, ForceMode.VelocityChange);
+
+            //METHOD 2 Works but not well
+            //rb.velocity = transform.right * DashDistance;
+
+
+
+            //http://hypertensiongamedev.tumblr.com/post/146330028920/i-was-thinking-if-the-dash-feature-should-be-a-new
+            //https://www.reddit.com/r/Unity3D/comments/3w8myp/added_dash_movement_to_my_3d_action_game/
+
         }
     }
-
 
     void FixedUpdate()
     {
         // Move the player around the scene.
-        rb.MovePosition(rb.position + inputVector * speed * Time.fixedDeltaTime);
+        if (inputVector.z > 0)
+            rb.MovePosition(rb.position + transform.forward * speed * Time.fixedDeltaTime);
+        else if (inputVector.z < 0)
+            rb.MovePosition(rb.position - transform.forward * speed * Time.fixedDeltaTime);
+
+        if (inputVector.x > 0)
+            rb.MovePosition(rb.position + transform.right * speed * Time.fixedDeltaTime);
+        else if (inputVector.x < 0)
+            rb.MovePosition(rb.position - transform.right * speed * Time.fixedDeltaTime);
 
         // Animate the player.
         //Animating(inputVector.x, inputVector.z);

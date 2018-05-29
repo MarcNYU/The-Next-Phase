@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LesserEnemy {
+public class LesserEnemy : Enemy 
+{
+    public enum State { Idle, Chasing, Attacking }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public bool isFriendly;
+
+    public Pathfinding PathFinder;
+
 }

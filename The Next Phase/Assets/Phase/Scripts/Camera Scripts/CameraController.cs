@@ -55,7 +55,7 @@ public class CameraController : MonoBehaviour
         Reset();
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (TargetLoookAt == null)
             return;
@@ -65,7 +65,7 @@ public class CameraController : MonoBehaviour
         UpdatePosition();
     }
 
-    void HandlePlayerInput()
+	void HandlePlayerInput()
     {
         var DeadZone = 0.01f;
 

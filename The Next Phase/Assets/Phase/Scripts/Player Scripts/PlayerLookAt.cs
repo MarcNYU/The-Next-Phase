@@ -22,7 +22,16 @@ public class PlayerLookAt : MonoBehaviour {
 
     void Update()
     {
-        Screen.lockCursor = lockCursor;
+        if(lockCursor) 
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
         if (Camera.main == null)
             return;

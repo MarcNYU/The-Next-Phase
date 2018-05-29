@@ -27,7 +27,6 @@ public class SpawnPooler : MonoBehaviour
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
-    // Use this for initialization
     void Start()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
@@ -56,15 +55,22 @@ public class SpawnPooler : MonoBehaviour
             return null;
         }
 
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        GameObject entityToSpawn = poolDictionary[tag].Dequeue();
 
-        objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = position;
-        objectToSpawn.transform.rotation = rotation;
+        entityToSpawn.SetActive(true);
+        entityToSpawn.transform.position = position;
+        entityToSpawn.transform.rotation = rotation;
 
-        poolDictionary[tag].Enqueue(objectToSpawn);
+        IPooledEntity pooledEntity = entityToSpawn.GetComponent<IPooledEntity>();
 
-        return objectToSpawn;
+        if (pooledEntity != null)
+        {
+            pooledEntity.OnEntitySpawn();
+        }
+
+        poolDictionary[tag].Enqueue(entityToSpawn);
+
+        return entityToSpawn;
     }
 
 }

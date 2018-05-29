@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;                                   // The current health the player has.
     public Slider healthSlider;                                 // Reference to the UI's health bar.
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
+    public AudioClip resurectClip;
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
     bool isDead;                                                // Whether the player is dead.
     bool damaged;                                               // True when the player gets damaged.
+    [HideInInspector] public bool isInvincible;
 
 
     void Awake()
@@ -77,14 +79,23 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Birth()
+    {
+        isDead = false;
 
-    void Death()
+        anim.SetTrigger("Born");
+
+        playerAudio.clip = resurectClip;
+        playerAudio.Play();
+
+        playerMovement.enabled = true;
+        playerShooting.enabled = true;
+    }
+
+    public void Death()
     {
         // Set the death flag so this function won't be called again.
         isDead = true;
-
-        // Turn off any remaining shooting effects.
-        playerShooting.DisableEffects();
 
         // Tell the animator that the player is dead.
         anim.SetTrigger("Die");

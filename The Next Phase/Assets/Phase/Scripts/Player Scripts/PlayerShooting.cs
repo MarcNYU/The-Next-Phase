@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -6,15 +9,31 @@ public class PlayerShooting : MonoBehaviour
     public float timeBetweenBullets = 0.15f;        // The time between each shot.
     public float range = 100f;                      // The distance the gun can fire.
 
-    float timer;                                    // A timer to determine when to fire.
-    Ray shootRay;                                   // A ray from the gun end forwards.
-    RaycastHit shootHit;                            // A raycast hit to get information about what was hit.
     int shootableMask;                              // A layer mask so the raycast only hits things on the shootable layer.
-    ParticleSystem gunParticles;                    // Reference to the particle system.
-    LineRenderer gunLine;                           // Reference to the line renderer.
-    AudioSource gunAudio;                           // Reference to the audio source.
-    Light gunLight;                                 // Reference to the light component.
-    float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
+
+    PlayerMovementRB playerMovement; 
+
+    public Rigidbody shell;                   // Prefab of the shell.
+    public Transform fireTransform;           // A child of the player where the shells are spawned.
+    public Slider aimSlider;                  // A child of the player that displays the current launch force.
+    public AudioSource shootingAudio;         // Reference to the audio source used to play the shooting audio. NB: different to the movement audio source.
+    public AudioClip chargingClip;            // Audio that plays when each shot is charging up.
+    public AudioClip fireClip;                // Audio that plays when each shot is fired.
+    public float minLaunchForce = 15f;        // The force given to the shell if the fire button is not held.
+    public float maxLaunchForce = 30f;        // The force given to the shell if the fire button is held for the max charge time.
+    public float maxChargeTime = 0.75f;       // How long the shell can charge for before it is fired at max force.
+
+    private string fireButton;                // The input axis that is used for launching shells.
+    private float currentLaunchForce;         // The force that will be given to the shell when the fire button is released.
+    private float chargeSpeed;                // How fast the launch force increases, based on the max charge time.
+    private bool fired;                       // Whether or not the shell has been launched with this button press.
+
+    private void OnEnable()
+    {
+        // When the tank is turned on, reset the launch force and the UI
+        currentLaunchForce = minLaunchForce;
+        aimSlider.value = minLaunchForce;
+    }
 
     void Awake()
     {
@@ -22,83 +41,74 @@ public class PlayerShooting : MonoBehaviour
         shootableMask = LayerMask.GetMask("Shootable");
 
         // Set up the references.
-        gunParticles = GetComponent<ParticleSystem>();
-        gunLine = GetComponent<LineRenderer>();
-        gunAudio = GetComponent<AudioSource>();
-        gunLight = GetComponent<Light>();
+        playerMovement = GetComponent<PlayerMovementRB>();
     }
 
-    void Update()
+    private void Start()
     {
-        // Add the time since Update was last called to the timer.
-        timer += Time.deltaTime;
+        // The fire axis is based on the player number.
+        fireButton = "Fire" + playerMovement.playerNumber;
 
-        // If the Fire1 button is being press and it's time to fire...
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
+        // The rate that the launch force charges up is the range of possible forces by the max charge time.
+        chargeSpeed = (maxLaunchForce - minLaunchForce) / maxChargeTime;
+    }
+
+    private void Update()
+    {
+        // The slider should have a default value of the minimum launch force.
+        aimSlider.value = minLaunchForce;
+
+        // If the max force has been exceeded and the shell hasn't yet been launched...
+        if (currentLaunchForce >= maxLaunchForce && !fired)
         {
-            // ... shoot the gun.
-            Shoot();
+            // ... use the max force and launch the shell.
+            currentLaunchForce = maxLaunchForce;
+            Fire();
         }
-
-        // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
+        // Otherwise, if the fire button has just started being pressed...
+        else if (Input.GetButtonDown(fireButton))
         {
-            // ... disable the effects.
-            DisableEffects();
+            // ... reset the fired flag and reset the launch force.
+            fired = false;
+            currentLaunchForce = minLaunchForce;
+
+            // Change the clip to the charging clip and start it playing.
+            shootingAudio.clip = chargingClip;
+            shootingAudio.Play();
+        }
+        // Otherwise, if the fire button is being held and the shell hasn't been launched yet...
+        else if (Input.GetButton(fireButton) && !fired)
+        {
+            // Increment the launch force and update the slider.
+            currentLaunchForce += chargeSpeed * Time.deltaTime;
+
+            aimSlider.value = currentLaunchForce;
+        }
+        // Otherwise, if the fire button is released and the shell hasn't been launched yet...
+        else if (Input.GetButtonUp(fireButton) && !fired)
+        {
+            // ... launch the shell.
+            Fire();
         }
     }
 
-    public void DisableEffects()
+    private void Fire()
     {
-        // Disable the line renderer and the light.
-        gunLine.enabled = false;
-        gunLight.enabled = false;
-    }
+        // Set the fired flag so only Fire is only called once.
+        fired = true;
 
-    void Shoot()
-    {
-        // Reset the timer.
-        timer = 0f;
+        // Create an instance of the shell and store a reference to it's rigidbody.
+        Rigidbody shellInstance =
+            Instantiate(shell, fireTransform.position, fireTransform.rotation) as Rigidbody;
 
-        // Play the gun shot audioclip.
-        gunAudio.Play();
+        // Set the shell's velocity to the launch force in the fire position's forward direction.
+        shellInstance.velocity = currentLaunchForce * fireTransform.forward; ;
 
-        // Enable the light.
-        gunLight.enabled = true;
+        // Change the clip to the firing clip and play it.
+        shootingAudio.clip = fireClip;
+        shootingAudio.Play();
 
-        // Stop the particles from playing if they were, then start the particles.
-        gunParticles.Stop();
-        gunParticles.Play();
-
-        // Enable the line renderer and set it's first position to be the end of the gun.
-        gunLine.enabled = true;
-        gunLine.SetPosition(0, transform.position);
-
-        // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
-        shootRay.origin = transform.position;
-        shootRay.direction = transform.forward;
-
-        // Perform the raycast against gameobjects on the shootable layer and if it hits something...
-        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
-        {
-            // Try and find an EnemyHealth script on the gameobject hit.
-            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-
-            // If the EnemyHealth component exist...
-            if (enemyHealth != null)
-            {
-                // ... the enemy should take damage.
-                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
-            }
-
-            // Set the second position of the line renderer to the point the raycast hit.
-            gunLine.SetPosition(1, shootHit.point);
-        }
-        // If the raycast didn't hit anything on the shootable layer...
-        else
-        {
-            // ... set the second position of the line renderer to the fullest extent of the gun's range.
-            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
-        }
+        // Reset the launch force.  This is a precaution in case of missing button events.
+        currentLaunchForce = minLaunchForce;
     }
 }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemy {
+public class BossEnemy : Enemy {
+
+    private int NumOfPhases;
 
 
 }

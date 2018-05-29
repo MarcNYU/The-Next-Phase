@@ -1,18 +1,20 @@
 ﻿<Properties StartupConfiguration="{8D9BACD9-BFDD-5495-5948-87023F3689EF}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Phase/Scripts/Player Scripts/PlayerLookAt.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Phase/Scripts/Game Controllers/SpawnPooler.cs">
     <Files>
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerHealth.cs" Line="30" Column="55" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/BossEnemy.cs" Line="5" Column="24" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/LesserEnemy.cs" Line="5" Column="26" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets/Phase/Scripts/Camera Scripts/CameraController.cs" Line="27" Column="31" />
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerLookAt.cs" Line="32" Column="9" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Utillity Scripts/FieldOfView.cs" Line="21" Column="36" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Utillity Scripts/TimeBody.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerMovementCC.cs" Line="51" Column="23" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerMovementRB.cs" Line="56" Column="41" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerHealth.cs" Line="24" Column="48" />
+      <File FileName="Assets/Phase/Scripts/Enemy Scripts/Enemy.cs" Line="6" Column="2" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerShooting.cs" Line="35" Column="9" />
+      <File FileName="Assets/Phase/Scripts/Player Scripts/PlayerMovementRB.cs" Line="36" Column="41" />
+      <File FileName="Assets/Phase/Scripts/Game Controllers/SpawnPooler.cs" Line="64" Column="64" />
+      <File FileName="Assets/Phase/Scripts/Game Controllers/IPooledEntity.cs" Line="10" Column="1" />
+      <File FileName="Assets/Phase/Scripts/Game Controllers/EntitySpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets/Phase/Scripts/Utillity Scripts/Destructible.cs" Line="19" Column="3" />
+      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyMovement.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyHealth.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyAttack.cs" Line="14" Column="118" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Enemy Scripts/LesserEnemy.cs" Line="12" Column="5" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Enemy Scripts/BossEnemy.cs" Line="11" Column="1" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Utillity Scripts/ShellExplosion.cs" Line="20" Column="9" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
