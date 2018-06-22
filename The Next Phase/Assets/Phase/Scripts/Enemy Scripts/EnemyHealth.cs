@@ -14,35 +14,38 @@ public class EnemyHealth : MonoBehaviour
 
     Animator anim;                              // Reference to the animator.
     AudioSource enemyAudio;                     // Reference to the audio source.
-    ParticleSystem hitParticles;                // Reference to the particle system that plays when the enemy is damaged.
+	ParticleSystem deathParticles;
+	ParticleSystem hitParticles;                // Reference to the particle system that plays when the enemy is damaged.
     CapsuleCollider capsuleCollider;            // Reference to the capsule collider.
-    bool isDead;                                // Whether the enemy is dead.
-    bool isSinking;                             // Whether the enemy has started sinking through the floor.
+    public bool isDead;                                // Whether the enemy is dead.
+    public bool isSinking;                             // Whether the enemy has started sinking through the floor.
 
+	public bool isCoruptable;
+	public bool isFriendly;
 
-    void Awake()
-    {
-        // Setting up the references.
-        anim = GetComponent<Animator>();
-        enemyAudio = GetComponent<AudioSource>();
-        hitParticles = GetComponentInChildren<ParticleSystem>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
+	private System.Random random = new System.Random();
 
-        // Setting the current health when the enemy first spawns.
-        currentHealth = startingHealth;
-    }
+	public void Awake()
+	{
+		// Setting up the references.
+		anim = GetComponent<Animator>();
+		enemyAudio = GetComponent<AudioSource>();
+		deathParticles = gameObject.transform.Find("DeathEffect").GetComponent<ParticleSystem>();
+		hitParticles = gameObject.transform.Find("DamageEffect").GetComponent<ParticleSystem>();
+		capsuleCollider = GetComponent<CapsuleCollider>();
 
-    void Update()
-    {
-        // If the enemy should be sinking...
-        if (isSinking)
-        {
-            // ... move the enemy down by the sinkSpeed per second.
-            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
-        }
-    }
+		// Setting the current health when the enemy first spawns.
+		if (isFriendly == true)
+			startingHealth /= 2;
+		currentHealth = startingHealth;
+	}
 
-
+	public void DeterminCoruptability()
+	{
+		int randomNum = random.Next(100);
+		isCoruptable = randomNum < 25;
+	}
+    
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
         // If the enemy is dead...
@@ -103,6 +106,24 @@ public class EnemyHealth : MonoBehaviour
         ScoreManager.score += scoreValue;
 
         // After 2 seconds destory the enemy.
-        Destroy(gameObject, 2f);
+        //Destroy(gameObject, 2f);
     }
+
+	public void Explode()
+	{
+		// Find and disable the Nav Mesh Agent.
+        GetComponent<NavMeshAgent>().enabled = false;
+
+        // Find the rigidbody component and make it kinematic (since we use Translate to sink the enemy).
+        GetComponent<Rigidbody>().isKinematic = true;
+
+		// Set the position of the particle system to where the hit was sustained.
+		deathParticles.transform.position = transform.position;
+
+        // And play the particles.
+		deathParticles.Play();
+
+		// Increase the score by the enemy's score value.
+        ScoreManager.score += scoreValue;
+	}
 }
