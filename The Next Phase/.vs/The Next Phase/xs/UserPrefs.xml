@@ -1,15 +1,8 @@
 ﻿<Properties StartupConfiguration="{8D9BACD9-BFDD-5495-5948-87023F3689EF}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Phase/Scripts/Game Controllers/IPooledEnemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Phase/Scripts/Environment Scripts/MapGenerator.cs">
     <Files>
-      <File FileName="Assets/Phase/Scripts/Game Controllers/EnemyManager.cs" Line="16" Column="6" />
-      <File FileName="Assets/Phase/Scripts/Game Controllers/EnemyPooler.cs" Line="58" Column="20" />
-      <File FileName="Assets/Phase/Scripts/Game Controllers/EnemySpawner.cs" Line="17" Column="3" />
-      <File FileName="Assets/Phase/Scripts/Game Controllers/IPooledEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/LesserEnemy.cs" Line="109" Column="5" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyMovement.cs" Line="20" Column="3" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyHealth.cs" Line="8" Column="2" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/EnemyAttack.cs" Line="15" Column="36" NotebookId="1" />
-      <File FileName="Assets/Phase/Scripts/Enemy Scripts/Runner.cs" Line="25" Column="29" NotebookId="1" />
+      <File FileName="Assets/Phase/Scripts/Environment Scripts/lib.cs" Line="1" Column="1" />
+      <File FileName="Assets/Phase/Scripts/Environment Scripts/MapGenerator.cs" Line="17" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

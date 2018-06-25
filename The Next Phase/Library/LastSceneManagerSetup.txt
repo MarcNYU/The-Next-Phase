@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Phase/Scenes/Test/PlayerTestEnvironment.unity
+- path: Assets/Phase/Scenes/Test/TerrainTestEnvironment.unity
   isLoaded: 1
   isActive: 1
