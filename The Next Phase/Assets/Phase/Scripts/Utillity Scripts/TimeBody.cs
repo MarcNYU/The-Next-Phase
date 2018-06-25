@@ -18,20 +18,23 @@ public class TimeBody : MonoBehaviour
 
     Rigidbody rb;
 
-    // Use this for initialization
     void Start()
     {
         pointsInTime = new List<PointInTime>();
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (triggerRewind)
             StartRewind();
         if (endRewindAnimation)
             StopRewind();
+
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //    StartRewind();
+        //if (Input.GetKeyUp(KeyCode.Return))
+            //StopRewind();
     }
 
     private void FixedUpdate()

@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Player2
   - Sheild
-  - Vision Cone2
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,8 +19,8 @@ TagManager:
   - Obsticles
   - Targets
   - Items
-  - 
-  - 
+  - Ground
+  - Shootable
   - 
   - 
   - 
